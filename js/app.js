@@ -79,10 +79,10 @@ function createPageGameCard()
 
 	// image
 	str += '<div class="panel panel-default">';
-	str += '<div class="panel-body">';
-	str += 'Basic panel example';
+	str += '<div class="panel-body" style="text-align:center;">';
+	str += '<img id="mainImage" width="50%">';
 	str += '</div>';
-	str += '<div class="panel-footer">Panel footer</div>';
+	str += '<div class="panel-footer" id="attribution" style="text-align:right;color:#666;"></div>';
 	str += '</div>';
 
 	// time progress
@@ -129,6 +129,15 @@ function sortData()
 		}
 	}
 	data = tmp;
+
+	var iterations = data.length * 3;
+	for(var i = 0; i < iterations; ++i) {
+		var pos1 = parseInt(Math.random() * data.length);
+		var pos2 = parseInt(Math.random() * data.length);
+		var tmp = data[pos1];
+		data[pos1] = data[pos2];
+		data[pos2] = tmp;
+	}
 }
 
 //-----------------------------------------------------------------------
@@ -169,6 +178,9 @@ function showPage(number)
 	$(questions.get(randoms[1])).html(dataset.text2);
 	$(questions.get(randoms[2])).html(dataset.text3);
 	$(questions.get(randoms[3])).html(dataset.text4);
+
+	$('#attribution').html(dataset.attribution);
+	$('#mainImage').attr('src', 'img/' + dataset.path);
 }
 
 //-----------------------------------------------------------------------
