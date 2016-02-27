@@ -11,14 +11,14 @@ data =
     "attribution":""
   },
   {
-    "text1":"Krankenschwester",
+    "text1":"Pflegepersonal",
     "text2":" Krankenpfleger",
     "text3":" Krankenbruder",
-    "text4":" Pflegepersonal",
+    "text4":"Krankenschwester",
     "text5":"",
-    "image":"",
-    "path":"",
-    "attribution":""
+    "image":"https://commons.wikimedia.org/wiki/File:Bundesarchiv_Bild_183-K0612-0001-004,_Rostock,_S%C3%BCdstadt-Krankenhaus,_Operation.jpg",
+    "path":"operation.jpg",
+    "attribution":"Bundesarchiv, Bild 183-K0612-0001-004 / CC-BY-SA 3.0"
   },
   {
     "text1":"Hebamme",
@@ -164,7 +164,7 @@ data =
     "text1":"Team",
     "text2":"Mannschaft",
     "text3":"Frauschaft",
-    "text4":"",
+    "text4":"Mitarbeiter",
     "text5":"",
     "image":"https://de.wikipedia.org/wiki/Datei:Schlierenzauer_Morgenstern_Hoelzl_Seifriedsberger_Val_di_Fiemme_2013_(mixed_team_-_decoration)_2.JPG",
     "path":"team.jpg",
@@ -274,7 +274,7 @@ data =
     "text1":"Reinigungspersonal",
     "text2":"Putzmann",
     "text3":"Putzfrau",
-    "text4":"",
+    "text4":"Raumpflegerin",
     "text5":"",
     "image":"https://de.wikipedia.org/wiki/Datei:Stolperstein-Putzen_08.JPG",
     "path":"reinigen.jpg",
@@ -317,17 +317,27 @@ data =
     "text4":"",
     "text5":"",
     "image":"https://de.wikipedia.org/wiki/Datei:Baby_2.jpg",
-    "path":"baby.jpg",
+    "path":"",
     "attribution":"CC-BY Tarotastic"
   },
   {
     "text1":"Gehweg",
     "text2":"Bürgersteig",
     "text3":"Bürgerinnensteig",
-    "text4":"",
+    "text4":"Fußgängerweg",
     "text5":"",
     "image":"https://de.wikipedia.org/wiki/Datei:Gehsteig_(14004019271).jpg",
     "path":"gehsteig.jpg",
     "attribution":"CC-BY jad99"
+  },
+  {
+    "text1":"Herkunftsland",
+    "text2":"Mutterland",
+    "text3":"Vaterland",
+    "text4":"Familienland",
+    "text5":"",
+    "image":"https://de.wikipedia.org/wiki/Datei:Weltkarte.jpg",
+    "path":"weltkarte.jpg",
+    "attribution":"gemeinfrei "
   }
 ]
