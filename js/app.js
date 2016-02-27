@@ -2,7 +2,7 @@
 
 function installMenu()
 {
-	var brandTitle = 'Gender Quiz';
+	var brandTitle = 'Unisex';
 	document.title = brandTitle;
 
 	var str = $('.navbar-header').html();
@@ -78,24 +78,36 @@ function createPageGameCard()
 	var str = '';
 
 	// image
+	str += '<div class="panel panel-default">';
+	str += '<div class="panel-body">';
+	str += 'Basic panel example';
+	str += '</div>';
+	str += '<div class="panel-footer">Panel footer</div>';
+	str += '</div>';
 
 	// time progress
-	str += '<div class="progress">';
+	str += '<div class="panel panel-default">';
+	str += '<div class="panel-body">';
+	str += 'Finde das neutrale Wort';
+	str += '</div>';
+	str += '<div class="panel-footer" style="padding:0;">';
+	str += '<div class="progress" style="margin:0;">';
 	str += '<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">';
-	str += '<span class="sr-only"></span>';
+	str += '</div>';
+	str += '</div>';
 	str += '</div>';
 	str += '</div>';
 
 	// questions
-	str += '<ul class="list-group">';
-	str += '<li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>';
-	str += '<li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>';
-	str += '<li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>';
-	str += '<li class="list-group-item list-group-item-danger">Vestibulum at eros</li>';
+	str += '<ul class="list-group" id="questions">';
+	str += '<li class="list-group-item"></li>';
+	str += '<li class="list-group-item"></li>';
+	str += '<li class="list-group-item"></li>';
+	str += '<li class="list-group-item"></li>';
 	str += '</ul>';
 
 	// pageing
-	str += '<nav>';
+	str += '<nav style="text-align:center;">';
 	str += '<ul class="pagination pagination-lg">';
 	for(var i = 0; i < 5; ++i) {
 		str += '<li><a href="#">' + (i + 1) + '</a></li>';
@@ -108,8 +120,17 @@ function createPageGameCard()
 
 //-----------------------------------------------------------------------
 
-function showPage(number)
+function showPage(number, dataset)
 {
+	var randoms = [0,1,2,3];
+	for(var i = 0; i < 100; ++i) {
+		var pos1 = parseInt(Math.random() * 4);
+		var pos2 = parseInt(Math.random() * 4);
+		var tmp = randoms[pos1];
+		randoms[pos1] = randoms[pos2];
+		randoms[pos2] = tmp;
+	}
+
 	var navigation = $('.pagination').children();
 
 	for(var i = 0; i < navigation.length; ++i) {
@@ -127,6 +148,13 @@ function showPage(number)
 	$('.progress-bar')
 	.removeClass('progress-bar-danger').removeClass('progress-bar-warning').addClass('progress-bar-success')
 	.width('100%');
+
+	var questions = $('#questions').children();
+	questions.removeClass('list-group-item-success').removeClass('list-group-item-danger').addClass('list-group-item-info');
+	$(questions.get(randoms[0])).html(dataset.text1);
+	$(questions.get(randoms[1])).html(dataset.text2);
+	$(questions.get(randoms[2])).html(dataset.text3);
+	$(questions.get(randoms[3])).html(dataset.text4);
 }
 
 //-----------------------------------------------------------------------
@@ -138,7 +166,7 @@ $(document).ready(function() {
 //	recalcBoard();
 
 	createPageGameCard();
-	showPage(1);
+	showPage(1, data[0]);
 });
 
 //-----------------------------------------------------------------------
