@@ -120,8 +120,22 @@ function createPageGameCard()
 
 //-----------------------------------------------------------------------
 
-function showPage(number, dataset)
+function sortData()
 {
+	var tmp = new Array();
+	for(var i = 0; i < data.length; ++i) {
+		if(data[i].path.length > 0) {
+			tmp.push(data[i]);
+		}
+	}
+	data = tmp;
+}
+
+//-----------------------------------------------------------------------
+
+function showPage(number)
+{
+	var dataset = data[0];
 	var randoms = [0,1,2,3];
 	for(var i = 0; i < 100; ++i) {
 		var pos1 = parseInt(Math.random() * 4);
@@ -136,7 +150,7 @@ function showPage(number, dataset)
 	for(var i = 0; i < navigation.length; ++i) {
 		var x = navigation.get(i);
 
-		if(i == (number - 1)) {
+		if(i == number) {
 			$(x).addClass('active');
 			$(x).removeClass('disabled');
 		} else {
@@ -165,8 +179,10 @@ $(document).ready(function() {
 	installTimer();
 //	recalcBoard();
 
+	sortData();
+
 	createPageGameCard();
-	showPage(1, data[0]);
+	showPage(0);
 });
 
 //-----------------------------------------------------------------------
