@@ -116,6 +116,13 @@ function createPageGameCard()
 	str += '</nav>';
 
 	$('#game').html(str);
+	$('#questions').children().click( function() {
+//		$(this).removeClass('list-group-item-info').addClass('list-group-item-danger');
+		$(this).removeClass('list-group-item-info').addClass('list-group-item-success');
+		var ani = setTimeout(function() {
+			showPage(gPage + 1);
+		}, 2000);
+	});
 }
 
 //-----------------------------------------------------------------------
@@ -144,7 +151,8 @@ function sortData()
 
 function showPage(number)
 {
-	var dataset = data[0];
+	gPage = number;
+	var dataset = data[number];
 	var randoms = [0,1,2,3];
 	for(var i = 0; i < 100; ++i) {
 		var pos1 = parseInt(Math.random() * 4);
@@ -173,11 +181,11 @@ function showPage(number)
 	.width('100%');
 
 	var questions = $('#questions').children();
-	questions.removeClass('list-group-item-success').removeClass('list-group-item-danger').addClass('list-group-item-info');
-	$(questions.get(randoms[0])).html(dataset.text1);
-	$(questions.get(randoms[1])).html(dataset.text2);
-	$(questions.get(randoms[2])).html(dataset.text3);
-	$(questions.get(randoms[3])).html(dataset.text4);
+	questions.removeClass('list-group-item-success').removeClass('list-group-item-danger')/*.addClass('list-group-item-info')*/;
+	$(questions.get(randoms[0])).html(dataset.text1).data('answer',0==randoms[0]);
+	$(questions.get(randoms[1])).html(dataset.text2).data('answer',0==randoms[0]);
+	$(questions.get(randoms[2])).html(dataset.text3).data('answer',0==randoms[0]);
+	$(questions.get(randoms[3])).html(dataset.text4).data('answer',0==randoms[0]);
 
 	$('#attribution').html(dataset.attribution);
 	$('#mainImage').attr('src', 'img/' + dataset.path);
